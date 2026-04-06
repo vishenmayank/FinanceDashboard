@@ -36,36 +36,36 @@ export default function Insights() {
     .reduce((a, t) => a + t.amount, 0);
 
   return (
-    <div className="grid md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
 
       <Card>
-        <CardContent className="p-4">
-          <p className="text-sm text-muted-foreground">
+        <CardContent className="p-3 sm:p-4">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Highest Spending Category
           </p>
-          <h2 className="text-xl font-bold mt-2">
+          <h2 className="text-lg sm:text-xl font-bold mt-2">
             {topCategory} (₹ {max})
           </h2>
         </CardContent>
       </Card>
 
       <Card>
-        <CardContent className="p-4">
-          <p className="text-sm text-muted-foreground">
+        <CardContent className="p-3 sm:p-4">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Total Income
           </p>
-          <h2 className="text-xl font-bold text-green-600 mt-2">
+          <h2 className="text-lg sm:text-xl font-bold text-green-600 mt-2">
             ₹ {income}
           </h2>
         </CardContent>
       </Card>
 
       <Card>
-        <CardContent className="p-4">
-          <p className="text-sm text-muted-foreground">
+        <CardContent className="p-3 sm:p-4">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Total Expenses
           </p>
-          <h2 className="text-xl font-bold text-red-600 mt-2">
+          <h2 className="text-lg sm:text-xl font-bold text-red-600 mt-2">
             ₹ {expense}
           </h2>
         </CardContent>

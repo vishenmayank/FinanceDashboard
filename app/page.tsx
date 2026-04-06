@@ -15,16 +15,16 @@ function DashboardContent() {
   const balance = income - expense;
 
   return (
-    <div className="min-h-screen bg-muted/40 p-6">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="min-h-screen bg-muted/40 p-4 sm:p-6">
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Header */}
-        <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-semibold">Finance Dashboard</h1>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <h1 className="text-2xl sm:text-3xl font-semibold">Finance Dashboard</h1>
 
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as "viewer" | "admin")}
-            className="border-3 px-3 py-1 rounded border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-xl font-bold"
+            className="border-3 px-3 py-1 rounded border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg sm:text-xl font-bold w-full sm:w-auto"
           >
             <option value="viewer">Viewer</option>
             <option value="admin">Admin</option>
@@ -33,30 +33,30 @@ function DashboardContent() {
 
         {/* -------- OVERVIEW SECTION -------- */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Overview</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Overview</h2>
 
           {/* Cards */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <Card className="shadow-sm transition hover:scale-[1.02]">
-              <CardContent className="p-5">
-                <p className="text-sm text-muted-foreground">Balance</p>
-                <h2 className="text-3xl font-bold mt-2">₹ {balance}</h2>
+              <CardContent className="p-3 sm:p-5">
+                <p className="text-xs sm:text-sm text-muted-foreground">Balance</p>
+                <h2 className="text-2xl sm:text-3xl font-bold mt-2">₹ {balance}</h2>
               </CardContent>
             </Card>
 
             <Card className="shadow-sm transition hover:scale-[1.02]">
-              <CardContent className="p-5">
-                <p className="text-sm text-muted-foreground">Income</p>
-                <h2 className="text-3xl font-bold text-green-600 mt-2">
+              <CardContent className="p-3 sm:p-5">
+                <p className="text-xs sm:text-sm text-muted-foreground">Income</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-green-600 mt-2">
                   ₹ {income}
                 </h2>
               </CardContent>
             </Card>
 
             <Card className="shadow-sm transition hover:scale-[1.02]">
-              <CardContent className="p-5">
-                <p className="text-sm text-muted-foreground">Expenses</p>
-                <h2 className="text-3xl font-bold text-red-600 mt-2">
+              <CardContent className="p-3 sm:p-5">
+                <p className="text-xs sm:text-sm text-muted-foreground">Expenses</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-red-600 mt-2">
                   ₹ {expense}
                 </h2>
               </CardContent>
@@ -66,14 +66,14 @@ function DashboardContent() {
 
         {/* -------- ANALYTICS SECTION -------- */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Analytics</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Analytics</h2>
 
           <Charts />
         </div>
 
         {/* -------- INSIGHTS SECTION -------- */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Insights</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Insights</h2>
 
           <Insights />
         </div>
@@ -83,7 +83,7 @@ function DashboardContent() {
 
         {/* -------- TRANSACTIONS SECTION -------- */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Transactions</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Transactions</h2>
 
           <TransactionsTable />
         </div>

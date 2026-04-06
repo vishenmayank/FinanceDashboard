@@ -33,11 +33,11 @@ export default function AddTransaction() {
   };
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow space-y-4">
+    <div className="bg-white p-3 sm:p-4 rounded-xl shadow space-y-4">
 
-      <h2 className="text-lg font-semibold">Add Transaction</h2>
+      <h2 className="text-base sm:text-lg font-semibold">Add Transaction</h2>
 
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
 
         <Input
           placeholder="Category"
@@ -71,7 +71,7 @@ export default function AddTransaction() {
 
       </div>
 
-      <Button onClick={handleAdd}>Add</Button>
+      <Button onClick={handleAdd} className="w-full sm:w-auto">Add</Button>
     </div>
   );
 }

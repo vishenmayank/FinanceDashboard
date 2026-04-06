@@ -62,14 +62,14 @@ const lineData = sortedTransactions.map((t) => ({
   }));
 
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
 
       {/* Line Chart */}
       <Card>
-        <CardContent className="p-4">
-          <h3 className="text-lg font-semibold mb-2">Spending Trend</h3>
+        <CardContent className="p-3 sm:p-4">
+          <h3 className="text-base sm:text-lg font-semibold mb-2">Spending Trend</h3>
 
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={200} minHeight={200}>
             <LineChart data={lineData}>
               <XAxis dataKey="date" />
               <YAxis />
@@ -83,12 +83,12 @@ const lineData = sortedTransactions.map((t) => ({
 
       {/* Pie Chart */}
       <Card>
-        <CardContent className="p-4">
-          <h3 className="text-lg font-semibold mb-2">
+        <CardContent className="p-3 sm:p-4">
+          <h3 className="text-base sm:text-lg font-semibold mb-2">
             Expense Breakdown
           </h3>
 
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={200} minHeight={200}>
             <PieChart>
               <Pie data={pieData} dataKey="value" nameKey="name" label>
                 {pieData.map((_, index) => (
