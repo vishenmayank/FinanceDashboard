@@ -1,36 +1,227 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Finance Dashboard UI
 
-## Getting Started
+A modern, responsive **Finance Dashboard** built using **Next.js (App Router) + TypeScript + shadcn/ui + Recharts**.
+This project demonstrates clean UI design, state management, and interactive data visualization for tracking financial activities.
 
-First, run the development server:
+---
+
+# 🚀 Live Features
+
+## 📊 Dashboard Overview
+
+* Displays **Total Balance, Income, and Expenses**
+* Clean card-based UI
+* Real-time updates based on transactions
+
+---
+
+## 📈 Analytics
+
+* **Spending Trend (Line Chart)** — time-based visualization
+* **Expense Breakdown (Pie Chart)** — category-wise distribution
+* Charts are **dynamic and responsive**
+
+---
+
+## 📋 Transactions Management
+
+* View all transactions with:
+
+  * Date
+  * Category
+  * Amount
+  * Type (Income/Expense)
+
+### ✨ Features:
+
+* 🔍 Search by category
+* 📅 Sorted by date (ascending)
+* 📝 Edit transactions (Admin only)
+* 🗑️ Delete transactions (Admin only)
+
+---
+
+## 👤 Role-Based UI (RBAC Simulation)
+
+* **Viewer**
+
+  * Can only view data
+* **Admin**
+
+  * Can add, edit, delete transactions
+
+👉 Role can be switched from dropdown (top-right)
+
+---
+
+## ➕ Add Transaction (Admin Only)
+
+* Add new transaction with:
+
+  * Amount
+  * Category
+  * Date
+  * Type (Income/Expense)
+
+---
+
+## 💡 Insights Section
+
+* Highest spending category
+* Total income
+* Total expenses
+
+---
+
+## 💾 Data Persistence
+
+* Uses **localStorage**
+* Data remains after refresh:
+
+  * Transactions
+  * User role
+
+---
+
+## 🎨 UI & UX
+
+* Clean, minimal design using **shadcn/ui**
+* Fully responsive layout
+* Handles empty states gracefully
+* Smooth hover and interaction feedback
+
+---
+
+# 🛠️ Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **UI Library:** shadcn/ui
+* **Charts:** Recharts
+* **State Management:** React Context API
+* **Styling:** Tailwind CSS
+* **Storage:** localStorage (for persistence)
+
+---
+
+# 📂 Project Structure
+
+```
+app/
+ ├── components/
+ │   ├── Charts.tsx
+ │   ├── TransactionsTable.tsx
+ │   ├── AddTransaction.tsx
+ │   ├── Insights.tsx
+ │
+ ├── context/
+ │   └── AppContext.tsx
+ │
+ ├── types/
+ │   └── index.ts
+ │
+ ├── page.tsx
+```
+
+---
+
+# ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone <your-repo-link>
+cd finance-dashboard
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Open: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 🧠 Key Design Decisions
 
-## Learn More
+### ✅ Single Source of Truth
 
-To learn more about Next.js, take a look at the following resources:
+* All transactions managed via **Context API**
+* Avoids prop drilling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ✅ Type Safety
 
-## Deploy on Vercel
+* Centralized types in `/types`
+* Prevents duplication and errors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ✅ LocalStorage Persistence
+
+* Used lazy initialization for state
+* Avoids unnecessary re-renders
+
+---
+
+### ✅ Clean Component Structure
+
+* Modular and reusable components
+* Separation of concerns
+
+---
+
+### ✅ Data Handling
+
+* Transactions sorted by date
+* Defensive checks for undefined values
+
+---
+
+# 📌 Assumptions
+
+* Data is mocked (no backend)
+* Dates are user-provided for meaningful analytics
+* No authentication (role simulation only)
+
+---
+
+# 🔮 Possible Improvements
+
+* Backend integration (Node.js / Firebase)
+* Authentication & real RBAC
+* Export data (CSV/Excel)
+* Dark mode 🌙
+* Advanced filters (date range, categories)
+* Monthly aggregation in charts
+
+---
+
+# 🏆 Conclusion
+
+This project demonstrates:
+
+* Strong frontend fundamentals
+* Clean UI/UX thinking
+* Proper state management
+* Real-world problem-solving approach
+
+---
+
+# 🙌 Author
+
+**Mayank Kumar Singh**
+
+---
+
+👉 *This project was built as part of a frontend evaluation assignment and focuses on clarity, usability, and clean architecture.*
+
