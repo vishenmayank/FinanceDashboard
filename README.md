@@ -200,7 +200,6 @@ npm run dev
 * Backend integration (Node.js / Firebase)
 * Authentication & real RBAC
 * Export data (CSV/Excel)
-* Dark mode 🌙
 * Advanced filters (date range, categories)
 * Monthly aggregation in charts
 

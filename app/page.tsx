@@ -1,11 +1,15 @@
 "use client";
 
-import { AppProvider, useApp } from "./context/AppContext";
+import { useApp } from "./context/AppContext";
 import { Card, CardContent } from "./components/ui/card";
 import TransactionsTable from "./components/TransactionsTable";
 import Charts from "./components/Charts";
 import Insights from "./components/Insights";
 import AddTransaction from "./components/AddTransaction";
+import ThemeToggle from "./components/ThemeToggle";
+
+const selectClassName =
+  "h-9 rounded-lg border border-input bg-background px-3 text-sm font-medium text-foreground shadow-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
 
 function DashboardContent() {
   const { transactions, role, setRole } = useApp();
@@ -21,14 +25,18 @@ function DashboardContent() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <h1 className="text-2xl sm:text-3xl font-semibold">Finance Dashboard</h1>
 
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value as "viewer" | "admin")}
-            className="border-3 px-3 py-1 rounded border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg sm:text-xl font-bold w-full sm:w-auto"
-          >
-            <option value="viewer">Viewer</option>
-            <option value="admin">Admin</option>
-          </select>
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
+            <ThemeToggle />
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value as "viewer" | "admin")}
+              className={`${selectClassName} w-full sm:w-auto`}
+              aria-label="Select role"
+            >
+              <option value="viewer">Viewer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
         </div>
 
         {/* -------- OVERVIEW SECTION -------- */}
@@ -93,9 +101,5 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
-  return (
-    <AppProvider>
-      <DashboardContent />
-    </AppProvider>
-  );
+  return <DashboardContent />;
 }

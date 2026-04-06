@@ -5,6 +5,9 @@ import { useApp } from "../context/AppContext";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+const selectClassName =
+  "h-8 rounded-lg border border-input bg-background px-2.5 text-sm text-foreground outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+
 export default function AddTransaction() {
   const { addTransaction, role } = useApp();
 
@@ -33,45 +36,46 @@ export default function AddTransaction() {
   };
 
   return (
-    <div className="bg-white p-3 sm:p-4 rounded-xl shadow space-y-4">
+    <div className="rounded-xl border bg-card p-3 text-card-foreground shadow-sm sm:p-4">
+      <div className="space-y-4">
+        <h2 className="text-base sm:text-lg font-semibold">Add Transaction</h2>
 
-      <h2 className="text-base sm:text-lg font-semibold">Add Transaction</h2>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+          <Input
+            placeholder="Category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+          <Input
+            type="number"
+            placeholder="Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
 
-        <Input
-          placeholder="Category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
+          <Input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
 
-        <Input
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
+          <select
+            value={type}
+            onChange={(e) =>
+              setType(e.target.value as "income" | "expense")
+            }
+            className={selectClassName}
+          >
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
 
-        {/* ✅ NEW DATE INPUT */}
-        <Input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-
-        <select
-          value={type}
-          onChange={(e) =>
-            setType(e.target.value as "income" | "expense")
-          }
-          className="border rounded px-2"
-        >
-          <option value="expense">Expense</option>
-          <option value="income">Income</option>
-        </select>
-
+        <Button onClick={handleAdd} className="w-full sm:w-auto">
+          Add
+        </Button>
       </div>
-
-      <Button onClick={handleAdd} className="w-full sm:w-auto">Add</Button>
     </div>
   );
 }
