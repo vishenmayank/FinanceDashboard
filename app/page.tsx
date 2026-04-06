@@ -24,7 +24,7 @@ function DashboardContent() {
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as "viewer" | "admin")}
-            className="border px-3 py-1 rounded bg-white"
+            className="border-3 px-3 py-1 rounded border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none text-xl font-bold"
           >
             <option value="viewer">Viewer</option>
             <option value="admin">Admin</option>
